@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>319</LabelID>
+    <LabelName>友情链接列表_循环</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName</LabelField>
+    <LabelWhere>ParentID=@NodeID</LabelWhere>
+    <LabelOrder>OrderID ASC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="panel panel-info"&gt;
+&lt;div class="panel-heading"&gt; {Field="NodeName"/} &lt;a href="{ZL:GetNodeLinkUrl({Field="NodeID"/})/}" class="pull-right"&gt;更多 +&lt;/a&gt;&lt;/div&gt;
+&lt;div class="panel-body"&gt;
+&lt;ul&gt;
+{ZL.Label id="友情链接列表" ShowNum="@ShowNum" NodeID="{Field="NodeID"/}" /}
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Node","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

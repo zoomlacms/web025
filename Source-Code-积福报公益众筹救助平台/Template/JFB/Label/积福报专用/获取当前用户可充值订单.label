@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>426</LabelID>
+    <LabelName>获取当前用户可充值订单</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>积福报专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>UserID,,1,用户ID|ShowNum,5,1,显示数</LabelParam>
+    <LabelTable>ZL_Orderinfo LEFT JOIN ZL_Payment ON ZL_Orderinfo.PaymentNo=ZL_Payment.PayNo</LabelTable>
+    <LabelField>OrderNo,Rename,Remark,Jiedao,Ordermessage,Mobile</LabelField>
+    <LabelWhere>PaymentNO IS NOT NULL AND PaymentNO !='' And ZL_Orderinfo.UserID='{ZL:GetuserID()/}'</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;div class="weui-form-preview"&gt;
+&lt;div class="weui-form-preview__bd"&gt;
+&lt;div class="weui-form-preview__item"&gt;
+&lt;label class="weui-form-preview__label"&gt;订单号&lt;/label&gt;
+&lt;span class="weui-form-preview__value"&gt;{Field="OrderNo"/}&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="weui-form-preview__item"&gt;
+&lt;label class="weui-form-preview__label"&gt;发起人&lt;/label&gt;
+&lt;span class="weui-form-preview__value"&gt;{Field="Rename"/}&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="weui-form-preview__item"&gt;
+&lt;label class="weui-form-preview__label"&gt;基金名&lt;/label&gt;
+&lt;span class="weui-form-preview__value"&gt;{Field="Remark"/}&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="weui-form-preview__item"&gt;
+&lt;span class="weui-form-preview__value"&gt;
+&lt;a href="/Class_14/Default.aspx?pid={Field="Mobile"/}&amp;name={Field="Jiedao"/}&amp;idcard={Field="Ordermessage"/}"&gt;&lt;i class="fa fa-money"&gt;&lt;/i&gt; 点击充值&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}
+{ZL.Page id="响应式列表分页v3"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Orderinfo","tb_s":"ZL_Payment"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

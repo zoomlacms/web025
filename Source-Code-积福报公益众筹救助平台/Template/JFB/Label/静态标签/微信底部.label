@@ -1,0 +1,64 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>320</LabelID>
+    <LabelName>微信底部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div style="height:60px;"&gt;&lt;/div&gt;
+&lt;div class="weui-tabbar wei-footer"&gt;
+&lt;a href="/Class_13/Default.aspx" class="weui-tabbar__item" id="userA"&gt;
+&lt;i class="fa fa-certificate weui-tabbar__icon"&gt;&lt;/i&gt;
+&lt;p class="weui-tabbar__label"&gt;更多互助&lt;/p&gt;
+&lt;/a&gt;
+&lt;a href="/Class_18/Default.aspx" class="weui-tabbar__item" id="userB"&gt;
+&lt;i class="fa fa-file-text-o weui-tabbar__icon"&gt;&lt;/i&gt;
+&lt;p class="weui-tabbar__label"&gt;公示&lt;/p&gt;
+&lt;/a&gt;
+&lt;a href="/User" class="weui-tabbar__item" id="userC"&gt;
+&lt;i class="fa fa-user weui-tabbar__icon"&gt;&lt;/i&gt;
+&lt;p class="weui-tabbar__label"&gt;我&lt;/p&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!--menu float begin--&gt;
+&lt;section&gt;
+&lt;div class="mask_menu" style="display:none;"&gt;&lt;/div&gt;
+&lt;div class="menu" id="menufloat"&gt;&lt;i class="fa fa-th-large icon-menu"&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class="menu-c" id="menufloat-c" style="display:none;"&gt;
+&lt;div class="menu-c-out"&gt;
+&lt;div class="menu-c-inner"&gt;
+&lt;a class="a-home" href="/Class_13/Default.aspx" title="首页"&gt;&lt;/a&gt;
+&lt;a class="a-tel" href="tel://0791-88271285" title="联系我们"&gt;&lt;/a&gt;
+&lt;a id="serviceUrl" class="a-server" href="https://jq.qq.com/?_wv=1027&amp;k=42Sw47y" title="客服"&gt;&lt;/a&gt;
+&lt;a class="a-member" href="/User" title="会员中心"&gt;&lt;/a&gt;
+&lt;a class="a-search" href="/Class_4/Default.aspx" title="充值"&gt;&lt;/a&gt;
+&lt;a class="a-cart" href="/Class_13/Default.aspx" title="公益联盟"&gt;&lt;/a&gt;
+&lt;a class="a-collect" href="/wxshare.aspx" id="collect-link" title="分享"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!--menu float end--&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

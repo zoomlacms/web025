@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>427</LabelID>
+    <LabelName>获取指定商品ID</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>积福报专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>Proname,,1,商品名</LabelParam>
+    <LabelTable>ZL_Commodities</LabelTable>
+    <LabelField>ID</LabelField>
+    <LabelWhere>Proname like '%@Proname%'</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Field="ID"/}</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Commodities","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

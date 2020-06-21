@@ -1,0 +1,108 @@
+﻿@using System.Data
+@model ZoomLaCMS.Areas.User.Models.OrderViewModel
+@{
+    DataTable dt = new DataTable();
+    
+}
+@section head{<title>我的订单</title>
+<style>
+body { background:#f8f8f8;}
+.orderlist label { font-weight:normal; margin-bottom:0;}
+.orderlist .weui-form-preview { margin-bottom:1em;}
+
+@@media (max-width:768px){
+.order_t { display:none;}
+}
+</style>
+}
+@section content{
+    <div id="pageflag" data-nav="shop" data-ban="shop"></div>
+    <div class="container margin_t5 hidden">
+        <ol class="breadcrumb" style="margin-bottom:5px;">
+            <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+            <li class="active"><a href="OrderList">我的订单</a></li>
+        </ol>
+        @Html.Partial("OrderTop")
+    </div>
+    <div class="container orderlist margin_t5 padding0_xs">
+        <div class="order_navs hidden">
+            <ul class="nav nav-tabs" id="OrderType_ul" role="tablist">
+                <li role="presentation" data-flag="all"><a href="?filter=&ordertype=@Model.OrderType">全部订单</a></li>
+                <li role="presentation" data-flag="needpay"><a href="?filter=needpay&ordertype=@Model.OrderType">待付款</a></li>
+                <li role="presentation" data-flag="prepay"><a href="?filter=prepay&ordertype=@Model.OrderType">预付款</a></li>
+                <li role="presentation" data-flag="paid"><a href="?filter=paid&ordertype=@Model.OrderType">已付款</a></li>
+                <li role="presentation" data-flag="receive"><a href="?filter=receive&ordertype=@Model.OrderType">待收货</a></li>
+                <li role="presentation" data-flag="comment"><a href="?filter=comment&ordertype=@Model.OrderType">待评价</a></li>
+                <li role="presentation" data-flag="recycle"><a href="?filter=recycle&ordertype=@Model.OrderType">回收站</a></li>
+            </ul>
+            <div class="input-group search_div text_300">
+                <input type="text" id="Skey_T" name="Skey_T" placeholder="商品名称/商品编号/订单号" class="form-control mvcparam" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" id="Search_Btn" ><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+         @Html.Partial("OrderList_List",Model)
+    </div>
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"微信底部\"/}"))
+}
+@section script{
+    @Html.Partial("OrderList_Res")
+<script>
+$("#userC").addClass("weui-bar__item_on");
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+</script>
+}

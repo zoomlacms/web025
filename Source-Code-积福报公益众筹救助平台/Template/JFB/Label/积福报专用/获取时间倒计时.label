@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>435</LabelID>
+    <LabelName>获取时间倒计时</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>积福报专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>PayID,,1,付款ID</LabelParam>
+    <LabelTable>ZL_Payment</LabelTable>
+    <LabelField>DATEDIFF(dd,GETDATE(),DATEADD(d,180,PayTime)) as TimeDay</LabelField>
+    <LabelWhere>PaymentID='@PayID'</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Field="TimeDay"/}</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Payment","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

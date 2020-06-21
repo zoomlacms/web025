@@ -1,0 +1,91 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    
+}
+@section head{
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<title>消费详情</title>
+}
+@section content{
+<div id="pageflag" data-nav="home" data-ban="UserInfo"></div>
+<div class="container margin_t5 hidden-xs">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+        <li class="active"><a href="@Request.RawUrl">金额变更详情</a></li>
+    </ol>
+</div>
+<div class="container">
+<div class="input-group hidden-xs" style="width: 640px;">
+    <input type="text" id="stime_t" placeholder="起始时间" class="form-control text_md mvcparam" onclick="WdatePicker({})" />
+    <input type="text" id="etime_t" placeholder="结束时间" class="form-control text_md mvcparam" onclick="WdatePicker({})" />
+    <input type="text" id="skey_t" placeholder="关键词" class="form-control text_md mvcparam" value="@Request["skey_t"]" />
+    <input type="hidden" id="stype" class="mvcparam" value="@Request["SType"]" />
+    <span class="input-group-btn">
+        <button type="button" id="Skey_Btn" class="btn btn-default" onclick="mvcpage.load();"><span class="fa fa-search"></span></button>
+    </span>
+</div>
+<div class="clearfix margin_t5"></div>
+@Html.Partial("ConsumeDetail_List", Model)
+</div>
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"微信底部\"/}"))
+}
+@section script{
+<style>.allchk_l { display:none;}</style>
+<script>
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+$("#userC").addClass("weui-bar__item_on");
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+</script>
+}

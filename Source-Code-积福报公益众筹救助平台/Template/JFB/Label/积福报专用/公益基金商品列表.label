@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>324</LabelID>
+    <LabelName>公益基金商品列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>积福报专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,25,1,标题长|ShowNum,10,1,显示数|ClassName,,1,样式</LabelParam>
+    <LabelTable>ZL_Commodities left join ZL_P_Shop on ZL_Commodities.ItemID=ZL_P_Shop.ID</LabelTable>
+    <LabelField>ZL_Commodities.AddTime,ZL_Commodities.LinPrice,ZL_Commodities.NodeID,ZL_Commodities.Proname,ZL_Commodities.ShiPrice,ZL_Commodities.Thumbnails,ZL_Commodities.ID,ZL_Commodities.Proinfo,ZL_Commodities.Procontent</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And Sales=1 And IsTrue=1 And Recycler=0</LabelWhere>
+    <LabelOrder>ZL_Commodities.AddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li class="@ClassName"&gt;
+&lt;div class="whome_list_div"&gt;
+&lt;h3&gt;{ZL:CutText({Field="Proname"/},@TitleNum,)/}&lt;/h3&gt;
+&lt;div class="media"&gt;
+&lt;div class="media-left media-middle"&gt;&lt;a href="{ZL:GetShopUrl({Field="ID"/})/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="Thumbnails"/})/}" alt="{$SiteName/}" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="media-body media-middle"&gt;
+{Field="Procontent"/}
+&lt;p&gt;已加入{ZL.Label id="获取商品成交数量" ProID="{Field="ID"/}" /}人&lt;/p&gt;
+&lt;a href="/Class_14/Default.aspx?pid={Field="ID"/}"&gt;立即加入&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>大于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Commodities","tb_s":"ZL_P_Shop"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>
